@@ -27,6 +27,15 @@ extern const char * NS_ROSIDL_TYPESUPPORT(typesupport_identifier);
 
 NS_END
 
+#else
+
+NS_BEGIN
+
+ROSIDL_TYPESUPPORT_COMMON_IMPORT
+extern const char * typesupport_identifier;
+
+NS_END
+
 #endif  // ROSIDL_TYPESUPPORT_COMMON_C
 
 #endif  // ROSIDL_TYPESUPPORT_COMMON__IDENTIFIER_H_

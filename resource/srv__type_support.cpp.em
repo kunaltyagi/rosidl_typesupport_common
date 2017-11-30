@@ -32,7 +32,7 @@ namespace @(spec.pkg_name)
 namespace srv
 {
 
-namespace rosidl_typesupport_c
+namespace rosidl_typesupport_common
 {
 
 typedef struct _type_support_ids_t
@@ -92,7 +92,7 @@ static const rosidl_service_type_support_t @(spec.srv_name)_service_type_support
   rosidl_typesupport_c__get_service_typesupport_handle_function,
 };
 
-}  // namespace rosidl_typesupport_c
+}  // namespace rosidl_typesupport_common
 
 }  // namespace srv
 

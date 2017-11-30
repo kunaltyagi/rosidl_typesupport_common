@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ROSIDL_TYPESUPPORT_C__SERVICE_TYPE_SUPPORT_DISPATCH_H_
-#define ROSIDL_TYPESUPPORT_C__SERVICE_TYPE_SUPPORT_DISPATCH_H_
+#ifndef ROSIDL_TYPESUPPORT_COMMON__SERVICE_TYPE_SUPPORT_DISPATCH_H_
+#define ROSIDL_TYPESUPPORT_COMMON__SERVICE_TYPE_SUPPORT_DISPATCH_H_
 
 #include "rosidl_generator_c/service_type_support.h"
 
@@ -24,9 +24,13 @@ NS_BEGIN
 
 ROSIDL_TYPESUPPORT_COMMON_PUBLIC
 const rosidl_service_type_support_t *
+#if ROSIDL_TYPESUPPORT_COMMON_C
 NS_ROSIDL_TYPESUPPORT(get_service_typesupport_handle_function)(
+#else
+                      get_service_typesupport_handle_function (
+#endif
   const rosidl_service_type_support_t * handle, const char * identifier);
 
 NS_END
 
-#endif  // ROSIDL_TYPESUPPORT_C__SERVICE_TYPE_SUPPORT_DISPATCH_H_
+#endif  // ROSIDL_TYPESUPPORT_COMMON__SERVICE_TYPE_SUPPORT_DISPATCH_H_

@@ -15,25 +15,27 @@
 #ifndef ROSIDL_TYPESUPPORT_COMMON__NAMESPACE_H_
 #define ROSIDL_TYPESUPPORT_COMMON__NAMESPACE_H_
 
-#define _ADD_C_NAMESPACE_  (namespace, name) namespace ## __ ## name
-#define NS_ROSIDL_TYPESUPPORT_C(name)   _ADD_C_NAMESPACE_(rosidl_typesupport_common, name)
-
 #if __cplusplus
-#define _ADD_CPP_NAMESPACE_(namespace, name) namespace ## :: ## name
-#define NS_ROSIDL_TYPESUPPORT_CPP(name) _ADD_CPP_NAMESPACE_(rosidl_typesupport_common, name)
+namespace rosidl_typesupport_common {}
 #endif
 
-#if defined (ROSIDL_TYPESUPPORT_CPP)
+#define _ADD_C_NAMESPACE_(namespace, name)   namespace ## __ ## name
+#define _ADD_CPP_NAMESPACE_(namespace, name) namespace :: name
+
+#define NS_ROSIDL_TYPESUPPORT_C(name)   _ADD_C_NAMESPACE_  (rosidl_typesupport_common, name)
+#define NS_ROSIDL_TYPESUPPORT_CPP(name) _ADD_CPP_NAMESPACE_(rosidl_typesupport_common, name)
+
+#if defined (ROSIDL_TYPESUPPORT_COMMON_CPP)
   #define NS_ROSIDL_TYPESUPPORT(name) NS_ROSIDL_TYPESUPPORT_CPP(name)
   #define ROSIDL_TYPESUPPORT_STRING "rosidl_typesupport_cpp"
   #define NS_BEGIN namespace rosidl_typesupport_common {
-  #define NS_END }
-#elif defined (ROSIDL_TYPESUPPORT_C)
+  #define NS_END } // namespace rosidl_typesupport_common
+#elif defined (ROSIDL_TYPESUPPORT_COMMON_C)
   #define NS_ROSIDL_TYPESUPPORT(name) NS_ROSIDL_TYPESUPPORT_C(name)
   #define ROSIDL_TYPESUPPORT_STRING "rosidl_typesupport_c"
   #if __cplusplus
     #define NS_BEGIN extern "C" {
-    #define NS_END }
+    #define NS_END }  // extern "C"
   #else
     #define NS_BEGIN
     #define NS_END

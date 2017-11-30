@@ -39,7 +39,7 @@ namespace @(spec.base_type.pkg_name)
 namespace @(subfolder)
 {
 
-namespace rosidl_typesupport_c
+namespace rosidl_typesupport_common
 {
 
 typedef struct _type_support_ids_t
@@ -99,7 +99,7 @@ static const rosidl_message_type_support_t @(spec.base_type.type)_message_type_s
   rosidl_typesupport_c__get_message_typesupport_handle_function,
 };
 
-}  // namespace rosidl_typesupport_c
+}  // namespace rosidl_typesupport_common
 
 }  // namespace @(subfolder)
 

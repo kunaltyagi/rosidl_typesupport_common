@@ -24,7 +24,11 @@ NS_BEGIN
 
 ROSIDL_TYPESUPPORT_COMMON_PUBLIC
 const rosidl_message_type_support_t *
-NS_ROSIDL_TYPESUPPORT(__get_message_typesupport_handle_function)(
+#if ROSIDL_TYPESUPPORT_COMMON_C
+NS_ROSIDL_TYPESUPPORT(get_message_typesupport_handle_function)(
+#else
+                      get_message_typesupport_handle_function (
+#endif
   const rosidl_message_type_support_t * handle, const char * identifier);
 
 NS_END
