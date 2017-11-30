@@ -12,8 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#ifndef ROSIDL_TYPESUPPORT_COMMON__IDENTIFIER_H_
+#define ROSIDL_TYPESUPPORT_COMMON__IDENTIFIER_H_
+
 #include <rosidl_typesupport_common/namespace.h>
 #include <rosidl_typesupport_common/visibility_control.h>
 
-ROSIDL_TYPESUPPORT_COMMON_EXPORT
-const char * NS_ROSIDL_TYPESUPPORT(typesupport_identifier) = ROSIDL_TYPESUPPORT_STRING;
+#ifdef ROSIDL_TYPESUPPORT_COMMON_C
+
+NS_BEGIN
+
+ROSIDL_TYPESUPPORT_COMMON_PUBLIC
+extern const char * NS_ROSIDL_TYPESUPPORT(typesupport_identifier);
+
+NS_END
+
+#endif  // ROSIDL_TYPESUPPORT_COMMON_C
+
+#endif  // ROSIDL_TYPESUPPORT_COMMON__IDENTIFIER_H_

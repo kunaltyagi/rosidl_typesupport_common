@@ -22,14 +22,14 @@
 #include <list>
 #include <string>
 
-#ifdef ROSIDL_TYPESUPPORT_C_USE_POCO
+#ifdef ROSIDL_TYPESUPPORT_COMMON_USE_POCO
 #include "Poco/SharedLibrary.h"
 #endif
 
-#include "rosidl_typesupport_c/identifier.h"
-#include "rosidl_typesupport_c/type_support_map.h"
+#include <rosidl_typesupport_common/identifier.h>
+#include <rosidl_typesupport_common/type_support_map.h>
 
-namespace rosidl_typesupport_c
+namespace rosidl_typesupport_common
 {
 
 std::string find_library_path(const std::string & library_name);
@@ -51,7 +51,7 @@ get_typesupport_handle_function(
     return handle;
   }
 
-#ifdef ROSIDL_TYPESUPPORT_C_USE_POCO
+#ifdef ROSIDL_TYPESUPPORT_COMMON_USE_POCO
   if (handle->typesupport_identifier == rosidl_typesupport_c__typesupport_identifier) {
     const type_support_map_t * map = \
       static_cast<const type_support_map_t *>(handle->data);
@@ -92,6 +92,6 @@ get_typesupport_handle_function(
   return nullptr;
 }
 
-}  // namespace rosidl_typesupport_c
+}  // namespace rosidl_typesupport_common
 
 #endif  // TYPE_SUPPORT_DISPATCH_HPP_

@@ -12,18 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <rosidl_typesupport_common/service_type_support_dispatch.h>
+#ifndef ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
+#define ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
 
-#include "type_support_dispatch.hpp"
+#include <cstddef>
 
-NS_BEGIN
-
-const rosidl_service_type_support_t *
-NS_ROSIDL_TYPESUPPORT(get_service_typesupport_handle_function)(
-  const rosidl_service_type_support_t * handle, const char * identifier)
+#ifdef __cplusplus
+extern "C"
 {
-  return rosidl_typesupport_common::get_typesupport_handle_function<
-    rosidl_service_type_support_t>(handle, identifier);
-}
+#endif
 
-NS_END
+typedef struct type_support_map_t
+{
+  // TODO(dirk-thomas) const should not be defined for the fields
+  // but should be set for the struct when it is being used
+  // same for rosidl_message_type_support_t et al
+  const size_t size;
+  const char * package_name;
+  const char * const * typesupport_identifier;
+  const char * const * symbol_name;
+  void ** data;
+} type_support_map_t;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
