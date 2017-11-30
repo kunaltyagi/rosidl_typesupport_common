@@ -33,7 +33,19 @@ set(common_name "rosidl_typesupport")
 
 #ament_export_libraries(${PROJECT_NAME}_c ${PROJECT_NAME}_cpp)
 
-foreach(lib_name ${PROJECT_NAME}_c ${PROJECT_NAME}_cpp)
+set(lib_list ${PROJECT_NAME}_c ${PROJECT_NAME}_cpp)
+
+ament_export_libraries(${lib_list})
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+ament_package(
+    CONFIG_EXTRAS "${PROJECT_NAME}_c-extras.cmake.in"
+                  "${PROJECT_NAME}_cpp-extras.cmake.in"
+)
+
+foreach(lib_name ${lib_list})
   string(TOUPPER ${lib_name} lib_name_upper)
   add_library(${lib_name} SHARED
     src/identifier.cpp
@@ -56,19 +68,9 @@ foreach(lib_name ${PROJECT_NAME}_c ${PROJECT_NAME}_cpp)
   target_compile_definitions(${lib_name} PRIVATE "${lib_name_upper}")
 
   ament_target_dependencies(${lib_name} "rosidl_generator_c")
-  ament_export_libraries(${lib_name})
-
-  if(BUILD_TESTING)
-    find_package(ament_lint_auto REQUIRED)
-    ament_lint_auto_find_test_dependencies()
-  endif()
-
-  ament_package(
-    CONFIG_EXTRAS "${lib_name}-extras.cmake.in"
-  )
 
   install(
-      PROGRAMS bin/${PROJECT_NAME}
+    PROGRAMS bin/${PROJECT_NAME}
     DESTINATION lib/${lib_name}
   )
   install(
