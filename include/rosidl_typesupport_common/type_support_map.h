@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
-#define ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
+#ifndef ROSIDL_TYPESUPPORT_COMMON__TYPE_SUPPORT_MAP_H_
+#define ROSIDL_TYPESUPPORT_COMMON__TYPE_SUPPORT_MAP_H_
 
 #include <cstddef>
 
@@ -38,4 +38,4 @@ typedef struct type_support_map_t
 }
 #endif
 
-#endif  // ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
+#endif  // ROSIDL_TYPESUPPORT_COMMON__TYPE_SUPPORT_MAP_H_
