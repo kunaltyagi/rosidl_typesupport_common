@@ -87,7 +87,7 @@ if(rosidl_generate_interfaces_LIBRARY_NAME)
 endif()
 if(WIN32)
   target_compile_definitions(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-    PRIVATE "ROSIDL_TYPESUPPORT_CPP_BUILDING_DLL")
+      PRIVATE "ROSIDL_TYPESUPPORT_COMMON_CPP_BUILDING_DLL")
 endif()
 set_target_properties(${rosidl_generate_interfaces_TARGET}${_target_suffix}
   PROPERTIES CXX_STANDARD 14)

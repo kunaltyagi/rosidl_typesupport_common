@@ -52,7 +52,7 @@ get_typesupport_handle_function(
   }
 
 #ifdef ROSIDL_TYPESUPPORT_COMMON_USE_POCO
-  if (handle->typesupport_identifier == rosidl_typesupport_c__typesupport_identifier) {
+  if (handle->typesupport_identifier == NS_ROSIDL_TYPESUPPORT(typesupport_identifier)) {
     const type_support_map_t * map = \
       static_cast<const type_support_map_t *>(handle->data);
     for (size_t i = 0; i < map->size; ++i) {

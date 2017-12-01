@@ -30,6 +30,7 @@ ament_export_include_directories(include)
 ament_python_install_package(${PROJECT_NAME})
 
 set(common_name "rosidl_typesupport")
+string(TOUPPER ${PROJECT_NAME} project_name_upper)
 
 #ament_export_libraries(${PROJECT_NAME}_c ${PROJECT_NAME}_cpp)
 
@@ -54,11 +55,11 @@ foreach(lib_name ${lib_list})
     src/type_support_dispatch.cpp)
   if(Poco_FOUND)
     target_compile_definitions(${lib_name}
-      PRIVATE "${lib_name_uppercase}_USE_POCO")
+      PRIVATE "${project_name_upper}_USE_POCO")
   endif()
   if(WIN32)
     target_compile_definitions(${lib_name}
-      PRIVATE "${lib_name_uppercase}_BUILDING_DLL")
+      PRIVATE "${project_name_upper}_BUILDING_DLL")
   endif()
   target_include_directories(${lib_name}
     PUBLIC
