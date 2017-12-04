@@ -12,15 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <rosidl_typesupport_common/namespace.h>
 #include <rosidl_typesupport_common/message_type_support_dispatch.h>
 
 #include "type_support_dispatch.hpp"
 
 NS_BEGIN
 
+#if defined (ROSIDL_TYPESUPPORT_COMMON_C)
 const rosidl_message_type_support_t *
 NS_ROSIDL_TYPESUPPORT(get_message_typesupport_handle_function)(
   const rosidl_message_type_support_t * handle, const char * identifier)
+#elif defined (ROSIDL_TYPESUPPORT_COMMON_CPP)
+const rosidl_message_type_support_t * get_message_typesupport_handle_function(
+  const rosidl_message_type_support_t * handle, const char * identifier)
+#endif
 {
   return rosidl_typesupport_common::get_typesupport_handle_function<
     rosidl_message_type_support_t>(handle, identifier);
