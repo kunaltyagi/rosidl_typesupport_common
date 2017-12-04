@@ -17,9 +17,9 @@
 @
 #include <cstddef>
 
-#include "rosidl_generator_common/message_type_support_struct.h"
+#include "rosidl_generator_c/message_type_support_struct.h"
 
-#include "@(spec.base_type.pkg_name)/msg/rosidl_typesupport_c__visibility_control.h"
+#include "@(spec.base_type.pkg_name)/msg/rosidl_typesupport_common__visibility_control.h"
 #include "@(spec.base_type.pkg_name)/@(subfolder)/@(get_header_filename_from_msg_name(spec.base_type.type))__struct.h"
 
 @[if len(type_supports) != 1]@
